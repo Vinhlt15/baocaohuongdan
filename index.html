@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Hệ Thống Báo Cáo FPT</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            background: #f4f7f6;
+        }
+        .tab-container {
+            display: flex;
+            background: #2c3e50;
+            padding: 10px 20px 0;
+            height: 45px;
+            box-sizing: border-box;
+        }
+        .tab-button {
+            background: #34495e;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            cursor: pointer;
+            font-size: 15px;
+            margin-right: 5px;
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+            transition: 0.3s;
+        }
+        .tab-button:hover {
+            background: #3b5998;
+        }
+        .tab-button.active {
+            background: #ffffff;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+        .content-container {
+            width: 100%;
+            height: calc(100vh - 45px);
+            background: white;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="tab-container">
+        <!-- Tab 1: CLL -->
+        <button class="tab-button active" onclick="openTab(event, 'CLL.html')">CLL</button>
+        
+        <!-- Tab 2: RM -->
+        <button class="tab-button" onclick="openTab(event, 'RM.html')">RM</button>
+         <!-- Tab 3: Tong quat -->
+
+          <button class="tab-button" onclick="openTab(event, 'Tong quat.html')">Tong quat</button>
+       <!-- Tab 4: Thu Hồi -->
+         <button class="tab-button" onclick="openTab(event, 'Thu Hồi.html')">Thu Hồi</button>
+            <!-- Tab 4: HO My PT -->
+        <button class="tab-button" onclick="openTab(event, 'HO My PT.html')">HO My PT</button>
+        <!-- ========================================== -->
+        <!-- KHI CÓ FILE MỚI, HÃY COPY DÒNG DƯỚI ĐÂY VÀ ĐỔI TÊN FILE -->
+        <!-- <button class="tab-button" onclick="openTab(event, 'ten_file_moi.html')">Tên Tab Mới</button> -->
+        <!-- ========================================== -->
+    </div>
+
+    <div class="content-container">
+        <!-- Mặc định khi mở trang sẽ load file CLL.html -->
+        <iframe id="reportFrame" src="CLL.html"></iframe>
+    </div>
+
+    <script>
+        function openTab(evt, filename) {
+            document.getElementById('reportFrame').src = filename;
+            let buttons = document.getElementsByClassName("tab-button");
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].className = buttons[i].className.replace(" active", "");
+            }
+            evt.currentTarget.className += " active";
+        }
+    </script>
+
+</body>
+</html>
